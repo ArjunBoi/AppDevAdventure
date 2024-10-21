@@ -1,5 +1,6 @@
 package com.example.newsampleapp
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -32,7 +33,24 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.textviewSecond.text = "Welcome to the Second Fragment!"
+//        binding.textviewSecond.text = "Welcome to the Second Fragment!"
+
+//
+        // Load the saved notification preference
+        val sharedPreferences = activity?.getPreferences(Context.MODE_PRIVATE)
+        val notificationsEnabled = sharedPreferences?.getBoolean("notifications_enabled", true) ?: true
+
+        // Set the switch according to the saved value
+        binding.switchNotifications.isChecked = notificationsEnabled
+
+        // Save the preference when the switch is toggled
+        binding.switchNotifications.setOnCheckedChangeListener { _, isChecked ->
+            with (sharedPreferences?.edit()) {
+                this?.putBoolean("notifications_enabled", isChecked)
+                this?.apply()
+            }
+        }
+//
 
         binding.buttonSecond.setOnClickListener {
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
