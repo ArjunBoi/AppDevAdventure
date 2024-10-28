@@ -19,5 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "NewSampleApp"
+rootProject.name = "JamBook"
 include(":app")
+ 
