@@ -1,4 +1,7 @@
 # AppDevAdventure
+
+#### Project author: Arjun Taneja
+
 Public repository created as part of the app-dev requirements for CSS-545 
 
 1. I've chosen to go with **Android** as my intended platform for this project. I don't own any Apple devices, and I imagine that that lack of native support would have me running around trying VMs, which sounds exhausting. I also don't have a device I could test my app on, so Android makes the most sense for me.
